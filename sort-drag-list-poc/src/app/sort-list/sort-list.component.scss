@@ -1,0 +1,22 @@
+$theaderColor: #eee;
+$fonthoverColor: #fff;
+$primaryColor: #337ab7;
+$primaryColorBoder: #2e6da4;
+.panel-heading{
+    width: 100%;
+}
+.couponCodeFormBtn {
+	position: relative;
+	resize: none !important;
+	display: block;
+	background-color: transparent;
+	text-align: center;
+	padding: 0.5px;
+	margin-left: 0.5px;
+	cursor: pointer;
+}
+.couponCodeFormBtn:hover {
+	color: $fonthoverColor;
+	background-color: $primaryColor;
+	border-color: $primaryColorBoder;
+}

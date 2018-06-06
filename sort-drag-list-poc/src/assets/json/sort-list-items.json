@@ -1,0 +1,31 @@
+{
+	"products": [
+		{
+			"id": 1,
+			"name": "Avanti Picnic Basket Cooler",
+			"imageUrl": "assets/images/basket.jpg",
+			"price": 24,
+			"isSelected":false
+		},
+		{
+			"id": 2,
+			"name": "Entertainer Hot and Cold Food Carrier",
+			"imageUrl": "assets/images/Entertainer_Hot_Cold_Food_Carrier.jpg",
+			"price": 24
+		},
+		{
+			"id": 3,
+			"name": "Signature Series April Pant",
+			"imageUrl": "assets/images/Umbrella.jpg",
+			"price": 24,
+			"isSelected":false
+		},
+		{
+			"id": 4,
+			"name": "Watering Can Pin",
+			"imageUrl": "assets/images/waterCan.jpg",
+			"price": 24,
+			"isSelected":false
+		}
+	]
+}

@@ -1,0 +1,95 @@
+<div class="row">
+<div class="container container-fluid">
+        <div class="row">
+                <div class="col-xs-12">
+                    <div>
+                        <span class="couponTitle">Products in Collection</span>
+                        <button type="button" class="btn custom-btn btn-primary pull-right" (click)="onCreateCoupon()">
+                            <span class="createBtnText">
+                <i id="additionSymbl">&#43;</i> &nbsp;Add Products</span>
+                        </button>
+                        <div class="form-inline">
+                            These products will appear lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <br/>
+    <div class="row">
+        <div class="col-xs-10">
+            <form class="form-inline table-top-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputName2" placeholder="Search" (keyup)='updateFilter($event)'>
+                </div>
+                &nbsp;
+                <div class="btn-group" dropdown [isDisabled]="selectedArrayList.length <= 0">
+                    <button id="button-basic" dropdownToggle type="button" class="btn btn-default dropdown-toggle" aria-controls="dropdown-basic">
+                        Actions
+                        <span class="caret"></span>
+                    </button>
+                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+                        <li role="menuitem" *ngFor="let gAction of ListGlobalActions">
+                            <span class="couponCodeFormBtn" (click)="onDeleteAll()">{{gAction}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+  <div class="row">
+        <div class="col-xs-10 datatable-wrapper">    
+    <!-- if you want row to be draggable, just make [classSelector] empty -->
+    <!-- 
+    *REQUIRED attributes for 'dragula-extended.directive.ts'
+    [dragulaName]  - wrap value in 'single' quotes, must be a string
+    [dragulaModel] - your data
+    [classSelector] - if a value, wrap it in 'single' quotes, must be a string
+    (directiveDrop) - the on drop event callback
+    -->
+    <ngx-datatable
+        class="bootstrap"
+        [rows]="data"
+        [columnMode]="'force'"
+        [rowHeight]="50"
+        [dragulaName]="'bag'"
+        [trackByProp]="id"
+        [dragulaModel]="data"
+        [classSelector]=""
+        (directiveDrop)="onDrop($event)"
+        (directiveDrag)="onDrag($event)"
+        [selectionType]="checkbox"       
+        [loadingIndicator]="true"
+        (select)="onSelect($event)"
+        [headerHeight]="50"
+         [footerHeight]="50" 
+         [rowHeight]="'auto'">         
+          <ngx-datatable-column name="" [width]="30" [canAutoResize]="false" [resizeable]="false">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                  <span class="glyphicon glyphicon-menu-hamburger isDragable" (click)="isDrag($event)"></span>
+              </ng-template>             
+          </ngx-datatable-column>
+          <ngx-datatable-column [width]="40" [canAutoResize]="false" [resizeable]="false"> 
+                <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected" let-selectFn="selectFn">
+                        <input type="checkbox"  [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
+                    </ng-template>
+                    <ng-template ngx-datatable-cell-template let-row="row" let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChange">                            
+                        <input type="checkbox" [checked]="isSelected"  (change)="onCheckboxChange(row)" />                        
+                    </ng-template>
+          </ngx-datatable-column>         
+          <ngx-datatable-column name="Product" [width]="100">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                    <img [src]="row.imageUrl" class="img-responsive img-thumbnail" height="70" width="35"/>
+                    &nbsp;
+                  <span >{{row.name}}</span>
+              </ng-template>              
+          </ngx-datatable-column>  
+          <ngx-datatable-column name="Price" [width]="100" [canAutoResize]="false" [resizeable]="false">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                  <span>{{'$'+' '+row.price + '.00'}}</span>
+              </ng-template>
+          </ngx-datatable-column>       
+      </ngx-datatable>      
+  </div>
+  </div>
+  </div>
+  </div>

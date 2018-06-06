@@ -1,0 +1,152 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "~ngx-toastr/toastr.css";
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+@import 'dragula/dist/dragula.css';
+
+$table-header-bg: #f1f1f1;
+$table-border-color: #dadada;
+$row-active-bg: #ffffff;
+$row-bg: rgba(0, 0, 0, 0);
+$cell-color: #000000;
+
+body {
+	overflow-x: hidden !important;
+}
+.listorder {
+	cursor: pointer;
+	margin: 10px;
+	text-align: center;
+	padding: 5px 5px;
+}
+.ngx-datatable {
+	&.bootstrap {
+		border: 1px solid $table-border-color;
+		border-radius: 3px;
+		font-size: 14px;
+	}
+
+	.datatable-header {
+		background-color: $table-header-bg;
+
+		.datatable-header-cell {
+			color: black;
+			font-weight: bold;
+		}
+	}
+
+	.datatable-body {
+		.datatable-body-row {
+			&.active {
+				background-color: $row-active-bg !important;
+				color: $cell-color !important;
+			}
+
+			&.datatable-row-even {
+				background-color: $row-bg !important;
+			}
+
+			.datatable-body-cell {
+				overflow: inherit;
+				width: 10px;
+			}
+		}
+	}
+	&.fixed-row {
+		.datatable-scroll {
+			.isDragable {
+				cursor: pointer;
+			}
+			.form-inline {
+				display: inline-block;
+				margin-bottom: 0;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	.datatable-footer {
+		background-color: transparent !important;
+		color: #337ab7 !important;
+
+		.pager {
+			li {
+				margin: 10px -2px !important;
+
+				&.pages {
+					margin: 10px 0px !important;
+
+					&:first-child {
+						margin-left: -2px !important;
+					}
+				}
+
+				span {
+					// background-color: #424242;
+					border: 1px solid rgba(51, 122, 183, 1);
+					border-radius: 1px !important;
+					margin: 0 !important;
+					color: #337ab7 !important;
+					height: 32px !important;
+					min-width: 32px !important;
+					line-height: 32px !important;
+					cursor: pointer !important;
+				}
+
+				&.active,
+				&:hover {
+					a {
+						background-color: #337ab7 !important;
+						color: #fff !important;
+					}
+				}
+
+				&.disabled {
+					a {
+						// background-color: #424242;
+						color: #ccc !important;
+					}
+				}
+			}
+
+			.datatable-icon-prev,
+			.datatable-icon-left,
+			.datatable-icon-skip,
+			.datatable-icon-right {
+				line-height: 36px !important;
+			}
+		}
+	}
+	.datatable-row-wrapper.gu-mirror {
+		position: fixed !important;
+		transform: none !important;
+	}
+}
+
+.table-top-form {
+	border: 1px solid #dadada;
+	border-bottom: 0;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	padding: 15px;
+}
+
+.wrapper {
+	display: table;
+}
+
+.gu-mirror {
+	cursor: grabbing;
+	cursor: -moz-grabbing;
+	cursor: -webkit-grabbing;
+}
+.gu-unselectable .datatable-row-wrapper {
+	/*position:relative !important;*/
+	/*transform: none !important;*/
+	backface-visibility: visible !important;
+}
+.glyphicon-menu-hamburger {
+	color: #c0c0c0 !important;
+}
